@@ -2,7 +2,7 @@ stage('Checkout') {
     //snDevOpsStep()
     //snDevOpsChange()
     node {
-        echo 'Checking out..'
+        echo 'Checking out..'+ env.BRANCH_NAME
         checkout scm
     }
 }
