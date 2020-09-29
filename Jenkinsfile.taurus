@@ -20,9 +20,10 @@
  stage('Perf Tests'){
    snDevOpsStep()
    node {
-     sh 'which bzt'
-     sh 'which virtualenv'
-     //bzt "load_test1.yml"
+     //sh 'which bzt'
+     //sh 'which virtualenv'
+     /usr/local/bin/bzt --help
+     /usr/local/bin/bzt "load_test1.yml"
      //junit '**/xunit.xml'
    }
  }
