@@ -1,4 +1,5 @@
 
+ def mvn_version = 'Maven'
  stage('Checkout') {
      snDevOpsStep()
      snDevOpsChange()
@@ -10,7 +11,9 @@
  stage('Tests'){
    snDevOpsStep()
    node {
-     sh 'mvn clean test'
+      withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+        sh 'mvn clean test'
+      }
      step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
    }
  }
