@@ -1,6 +1,4 @@
- tools {
-    	maven 'Maven'
- }
+
  stage('Checkout') {
      snDevOpsStep()
      snDevOpsChange()
