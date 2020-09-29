@@ -24,7 +24,7 @@ pipeline {
    agent any
    steps{
      snDevOpsStep()
-     which bzt
+     //which bzt
      sh 'bzt load_test1.yml'
      junit '**/xunit.xml'
    }
