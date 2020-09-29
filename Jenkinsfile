@@ -25,7 +25,7 @@ pipeline {
    steps{
      snDevOpsStep()
      which bzt
-     /usr/local/bin/bzt "load_test1.yml"
+     sh 'bzt load_test1.yml"
      junit '**/xunit.xml'
    }
   }
