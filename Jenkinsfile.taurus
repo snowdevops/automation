@@ -21,7 +21,7 @@
    snDevOpsStep()
    node {
      sh '/usr/local/bin/bzt "load_test1.yml"'
-     //junit '**/junit1.xml'
+     junit '**/junit1.xml'
    }
  }
  
