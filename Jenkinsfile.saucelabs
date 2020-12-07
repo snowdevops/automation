@@ -7,18 +7,19 @@ pipeline {
   stage("Checkout"){
    agent any
    steps{
-     //snDevOpsStep()
-     //snDevOpsChange()
      sh 'echo checkout'
+     checkout scm
    }
   }
   stage("Tests") {
    agent any
    steps {
-    snDevOpsStep()
-    checkout scm
-    sh 'mvn clean test'
-    step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+    sauce('sauceuser-np'){
+      sauceconnect(useGeneratedTunnelIdentifier: true, verboseLogging: true) {
+          sh 'mvn test'
+      }
+    //sh 'mvn clean test'
+    //step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
    }
   }
  }
